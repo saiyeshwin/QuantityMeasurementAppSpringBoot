@@ -1,0 +1,150 @@
+2026-03-31T00:00:43.342+05:30  INFO 8912 --- [quantitymeasurement] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2026-03-31T00:00:43.410+05:30  INFO 8912 --- [quantitymeasurement] [Thread-14] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-31T00:00:43.943+05:30  INFO 8912 --- [quantitymeasurement] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-03-31T00:00:43.943+05:30 ERROR 8912 --- [quantitymeasurement] [http-nio-8080-Acceptor] org.apache.tomcat.util.net.Acceptor      : Socket accept failed
+
+java.nio.channels.AsynchronousCloseException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:203) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.end(ServerSocketChannelImpl.java:383) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.accept(ServerSocketChannelImpl.java:407) ~[na:na]
+	at org.apache.tomcat.util.net.NioEndpoint.serverSocketAccept(NioEndpoint.java:532) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.tomcat.util.net.NioEndpoint.serverSocketAccept(NioEndpoint.java:71) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.tomcat.util.net.Acceptor.run(Acceptor.java:127) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2026-03-31T00:00:43.953+05:30  INFO 8912 --- [quantitymeasurement] [Thread-14] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-31T00:00:43.956+05:30  INFO 8912 --- [quantitymeasurement] [Thread-14] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2026-03-31T00:00:43.959+05:30  INFO 8912 --- [quantitymeasurement] [Thread-14] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2026-03-31T00:00:44.115+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] c.s.q.QuantitymeasurementApplication     : Starting QuantitymeasurementApplication using Java 21.0.10 with PID 8912 (C:\Users\ssek3006\OneDrive - 7-Eleven, Inc\Desktop\Development\CoreProgrammingApps\QuantityMeasurementSpring\quantitymeasurement\target\classes started by ssek3006 in C:\Users\ssek3006\OneDrive - 7-Eleven, Inc\Desktop\Development\CoreProgrammingApps\QuantityMeasurementSpring\quantitymeasurement)
+2026-03-31T00:00:44.116+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] c.s.q.QuantitymeasurementApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-03-31T00:00:44.238+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-31T00:00:44.247+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 1 JPA repository interface.
+2026-03-31T00:00:44.309+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-03-31T00:00:44.310+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-31T00:00:44.310+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-03-31T00:00:44.340+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 222 ms
+2026-03-31T00:00:44.363+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-31T00:00:44.382+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-31T00:00:44.383+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2026-03-31T00:00:44.397+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@66a5162b
+2026-03-31T00:00:44.398+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2026-03-31T00:00:44.400+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/quantitymeasurement]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.45
+	Default catalog/schema: quantitymeasurement/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-31T00:00:44.428+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-31T00:00:44.438+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-31T00:00:44.501+05:30  WARN 8912 --- [quantitymeasurement] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-31T00:00:44.509+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-31T00:00:44.567+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/quantitymeasurement'
+2026-03-31T00:00:44.585+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-03-31T00:00:44.588+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] c.s.q.QuantitymeasurementApplication     : Started QuantitymeasurementApplication in 0.5 seconds (process running for 32760.654)
+2026-03-31T00:00:44.588+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-03-31T00:00:49.081+05:30  INFO 8912 --- [quantitymeasurement] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 5 class path changes (1 addition, 1 deletion, 3 modifications)
+2026-03-31T00:00:49.083+05:30  INFO 8912 --- [quantitymeasurement] [Thread-18] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-31T00:00:49.613+05:30  INFO 8912 --- [quantitymeasurement] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-03-31T00:00:49.614+05:30 ERROR 8912 --- [quantitymeasurement] [http-nio-8080-Acceptor] org.apache.tomcat.util.net.Acceptor      : Socket accept failed
+
+java.nio.channels.AsynchronousCloseException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:203) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.end(ServerSocketChannelImpl.java:383) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.accept(ServerSocketChannelImpl.java:407) ~[na:na]
+	at org.apache.tomcat.util.net.NioEndpoint.serverSocketAccept(NioEndpoint.java:532) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.tomcat.util.net.NioEndpoint.serverSocketAccept(NioEndpoint.java:71) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.tomcat.util.net.Acceptor.run(Acceptor.java:127) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2026-03-31T00:00:49.618+05:30  INFO 8912 --- [quantitymeasurement] [Thread-18] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-31T00:00:49.619+05:30  INFO 8912 --- [quantitymeasurement] [Thread-18] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2026-03-31T00:00:49.621+05:30  INFO 8912 --- [quantitymeasurement] [Thread-18] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2026-03-31T00:00:49.693+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] c.s.q.QuantitymeasurementApplication     : Starting QuantitymeasurementApplication using Java 21.0.10 with PID 8912 (C:\Users\ssek3006\OneDrive - 7-Eleven, Inc\Desktop\Development\CoreProgrammingApps\QuantityMeasurementSpring\quantitymeasurement\target\classes started by ssek3006 in C:\Users\ssek3006\OneDrive - 7-Eleven, Inc\Desktop\Development\CoreProgrammingApps\QuantityMeasurementSpring\quantitymeasurement)
+2026-03-31T00:00:49.694+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] c.s.q.QuantitymeasurementApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-03-31T00:00:50.522+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-31T00:00:50.532+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 JPA repository interface.
+2026-03-31T00:00:50.579+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-03-31T00:00:50.580+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-31T00:00:50.580+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-03-31T00:00:50.611+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 916 ms
+2026-03-31T00:00:50.627+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-31T00:00:50.645+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-31T00:00:50.646+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2026-03-31T00:00:50.658+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3ec913b1
+2026-03-31T00:00:50.658+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2026-03-31T00:00:50.660+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/quantitymeasurement]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.45
+	Default catalog/schema: quantitymeasurement/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-31T00:00:50.690+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-31T00:00:50.697+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-31T00:00:50.741+05:30  WARN 8912 --- [quantitymeasurement] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-31T00:00:50.747+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-31T00:00:50.786+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/quantitymeasurement'
+2026-03-31T00:00:50.801+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-03-31T00:00:50.802+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] c.s.q.QuantitymeasurementApplication     : Started QuantitymeasurementApplication in 1.126 seconds (process running for 32766.869)
+2026-03-31T00:00:50.803+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-03-31T00:01:03.538+05:30  INFO 8912 --- [quantitymeasurement] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-03-31T00:01:03.540+05:30  INFO 8912 --- [quantitymeasurement] [Thread-22] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-03-31T00:01:04.064+05:30  INFO 8912 --- [quantitymeasurement] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-03-31T00:01:04.065+05:30 ERROR 8912 --- [quantitymeasurement] [http-nio-8080-Acceptor] org.apache.tomcat.util.net.Acceptor      : Socket accept failed
+
+java.nio.channels.AsynchronousCloseException
+	at java.base/java.nio.channels.spi.AbstractInterruptibleChannel.end(AbstractInterruptibleChannel.java:203) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.end(ServerSocketChannelImpl.java:383) ~[na:na]
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.accept(ServerSocketChannelImpl.java:407) ~[na:na]
+	at org.apache.tomcat.util.net.NioEndpoint.serverSocketAccept(NioEndpoint.java:532) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.tomcat.util.net.NioEndpoint.serverSocketAccept(NioEndpoint.java:71) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at org.apache.tomcat.util.net.Acceptor.run(Acceptor.java:127) ~[tomcat-embed-core-11.0.20.jar:11.0.20]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2026-03-31T00:01:04.068+05:30  INFO 8912 --- [quantitymeasurement] [Thread-22] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-31T00:01:04.069+05:30  INFO 8912 --- [quantitymeasurement] [Thread-22] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2026-03-31T00:01:04.073+05:30  INFO 8912 --- [quantitymeasurement] [Thread-22] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2026-03-31T00:01:04.156+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] c.s.q.QuantitymeasurementApplication     : Starting QuantitymeasurementApplication using Java 21.0.10 with PID 8912 (C:\Users\ssek3006\OneDrive - 7-Eleven, Inc\Desktop\Development\CoreProgrammingApps\QuantityMeasurementSpring\quantitymeasurement\target\classes started by ssek3006 in C:\Users\ssek3006\OneDrive - 7-Eleven, Inc\Desktop\Development\CoreProgrammingApps\QuantityMeasurementSpring\quantitymeasurement)
+2026-03-31T00:01:04.157+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] c.s.q.QuantitymeasurementApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-03-31T00:01:04.649+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-31T00:01:04.658+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 1 JPA repository interface.
+2026-03-31T00:01:04.706+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-03-31T00:01:04.707+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-31T00:01:04.707+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.20]
+2026-03-31T00:01:04.733+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 575 ms
+2026-03-31T00:01:04.755+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-03-31T00:01:04.774+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-31T00:01:04.775+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2026-03-31T00:01:04.787+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7bffabc8
+2026-03-31T00:01:04.787+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2026-03-31T00:01:04.789+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/quantitymeasurement]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.45
+	Default catalog/schema: quantitymeasurement/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-31T00:01:04.816+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-31T00:01:04.823+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-31T00:01:04.869+05:30  WARN 8912 --- [quantitymeasurement] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-31T00:01:04.875+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-31T00:01:04.919+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/quantitymeasurement'
+2026-03-31T00:01:04.936+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-03-31T00:01:04.937+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] c.s.q.QuantitymeasurementApplication     : Started QuantitymeasurementApplication in 0.8 seconds (process running for 32781.003)
+2026-03-31T00:01:04.938+05:30  INFO 8912 --- [quantitymeasurement] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
