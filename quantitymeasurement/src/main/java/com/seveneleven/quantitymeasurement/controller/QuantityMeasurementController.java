@@ -90,4 +90,9 @@ public class QuantityMeasurementController {
     public String hello() {
         return "Hi from Jenkins CI/CD Deployment!";
     }
+     }
+    @GetMapping("/hi")
+    public String hello() {
+        return "Hi 2 from Jenkins CI/CD Deployment!";
+    }
 }
