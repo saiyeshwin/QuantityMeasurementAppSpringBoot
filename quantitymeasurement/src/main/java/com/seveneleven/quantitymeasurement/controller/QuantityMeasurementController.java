@@ -86,4 +86,8 @@ public class QuantityMeasurementController {
     public QuantityMeasurementDTO multiply(@RequestBody QuantityInputDTO input) {
         return service.multiply(input);
     }
+    @GetMapping("/hello")
+    public String hello() {
+        return "Hi from Jenkins CI/CD Deployment!";
+    }
 }
