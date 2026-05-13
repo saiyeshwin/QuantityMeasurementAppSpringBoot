@@ -94,5 +94,8 @@ public class QuantityMeasurementController {
     public String hi() {
         return "Hi 2 from Jenkins CI/CD Deployment!";
     }
-    
+    @GetMapping("/version3")
+    public String version3() {
+        return "Deployment Version 3";
+    }
 }
