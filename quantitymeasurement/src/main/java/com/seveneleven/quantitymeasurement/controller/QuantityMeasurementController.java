@@ -99,7 +99,7 @@ public class QuantityMeasurementController {
         return "Deployment Version 3";
     }
      @GetMapping("/verifyscm")
-    public String version3() {
+    public String verify() {
         return "Pipeline SCM is working";
     }
 }
