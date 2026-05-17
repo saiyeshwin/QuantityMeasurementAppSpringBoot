@@ -6,23 +6,24 @@ import com.seveneleven.quantitymeasurement.repository.QuantityMeasurementReposit
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-public class QuantityMeasurementServiceTe
-    QuantityMeasurementRepository repo = mock(QuantityMeasurementRepository.class);
-    QuantityMeasurementService service;
+@ExtendWith(MockitoExtension.class)
+public class QuantityMeasurementServiceTest {
 
-    @BeforeEach
-    void setUp() throws Exception {
-        service = new QuantityMeasurementService();
-        var field = QuantityMeasurementService.class.getDeclaredField("repo");
-        field.setAccessible(true);
-        field.set(service, repo);
-    }
+    @Mock
+    private QuantityMeasurementRepository repo;
 
-    QuantityDTO q(double value, Unit unit, MeasurementType type) {
+    @InjectMocks
+    private QuantityMeasurementService service;
+
+    private QuantityDTO q(double value, Unit unit, MeasurementType type) {
         QuantityDTO q = new QuantityDTO();
         q.setValue(value);
         q.setUnit(unit);
@@ -36,9 +37,11 @@ public class QuantityMeasurementServiceTe
             q(1.0, Unit.KILOMETER, MeasurementType.LENGTH),
             q(500.0, Unit.METER, MeasurementType.LENGTH)
         );
-        when(repo.save(any())).thenAnswer(inv -> inv.g
-                
-                tityMeasurementDTO result = service.add(inpu
+        
+        when(repo.save(any())).thenAnswer(inv -> inv.getArgument(0));
+
+        QuantityMeasurementDTO result = service.add(input);
+        
         assertFalse(result.isError);
         assertEquals(1.5, result.resultValue, 0.0001);
         assertEquals("KILOMETER", result.resultUnit);
@@ -52,8 +55,9 @@ public class QuantityMeasurementServiceTe
         );
         when(repo.save(any())).thenAnswer(inv -> inv.getArgument(0));
 
-                tityMeasurementDTO result = service.add(input);
-                assertTrue(result.isError);
+        QuantityMeasurementDTO result = service.add(input);
+        
+        assertTrue(result.isError);
         assertTrue(result.errorMessage.contains("Incompatible"));
     }
 
@@ -65,15 +69,17 @@ public class QuantityMeasurementServiceTe
         );
         when(repo.save(any())).thenAnswer(inv -> inv.getArgument(0));
 
-        QuantityMeasurementDTO result = service.compar
-                
-                rtEquals("GREATER_THAN", result.comparisonRe
+        QuantityMeasurementDTO result = service.compare(input);
+        
+        assertEquals("GREATER_THAN", result.comparisonResult);
+    }
 
     @Test
     void convert_kmToMeter_returnsCorrectValue() {
         QuantityInputDTO input = new QuantityInputDTO();
         input.thisQuantityDTO = q(2.0, Unit.KILOMETER, MeasurementType.LENGTH);
         input.targetUnit = Unit.METER;
+        
         when(repo.save(any())).thenAnswer(inv -> inv.getArgument(0));
 
         QuantityMeasurementDTO result = service.convert(input);
@@ -92,6 +98,8 @@ public class QuantityMeasurementServiceTe
 
         QuantityMeasurementDTO result = service.divide(input);
 
-                rtTrue(result.isError);
-                rtEquals("Division by zero", result.errorMess
+        // Fixed truncated assetions
+        assertTrue(result.isError);
+        assertEquals("Division by zero", result.errorMessage);
+    }
 }

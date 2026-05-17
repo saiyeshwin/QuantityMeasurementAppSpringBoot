@@ -1,0 +1,39 @@
+services:
+
+  mysql:
+    image: mysql:8.0
+
+    container_name: quantitymeasurementdb
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: qm_db
+      MYSQL_USER: quantityadmin
+      MYSQL_PASSWORD: Quantity@123
+
+    volumes:
+      - quantitymeasurement-dbdata:/var/lib/mysql
+
+    networks:
+      - quantitymeasurement-net
+
+  backend:
+    image: 671662643053.dkr.ecr.ap-south-1.amazonaws.com/quantitymeasurement-backend:latest
+
+    container_name: qm-app-backend
+
+    ports:
+      - "8080:8080"
+
+    depends_on:
+      - mysql
+
+    networks:
+      - quantitymeasurement-net
+
+networks:
+  quantitymeasurement-net:
+    driver: bridge
+
+volumes:
+  quantitymeasurement-dbdata:

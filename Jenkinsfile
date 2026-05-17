@@ -1,29 +1,72 @@
 pipeline {
+
     agent any
 
+    environment {
+        AWS_ACCOUNT_ID = '671662643053'
+        AWS_REGION = 'ap-south-1'
+        IMAGE_NAME = 'quantitymeasurement-backend'
+
+        ECR_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${IMAGE_NAME}"
+    }
+
     stages {
-        stage('Git Checkout') {
+
+        stage('Checkout Code') {
+
             steps {
-                git branch:'dev',
-                url:'https://github.com/saiyeshwin/QuantityMeasurementAppSpringBoot.git'
+                git branch: 'docker-cicd',
+                url: 'https://github.com/saiyeshwin/QuantityMeasurementAppSpringBoot.git'
             }
         }
-         stage('Build Artifact') {
+
+        stage('Build Docker Image') {
+
             steps {
+
+                dir('quantitymeasurement') {
+
+                    sh '''
+                    docker build -t quantitymeasurement-backend:latest .
+                    '''
+                }
+            }
+        }
+
+        stage('Login To ECR') {
+
+            steps {
+
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'aws-ecr-creds'
+                ]]) {
+
+                    sh '''
+                    aws ecr get-login-password --region ap-south-1 | \
+                    docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com
+                    '''
+                }
+            }
+        }
+
+        stage('Tag Docker Image') {
+
+            steps {
+
                 sh '''
-                cd quantitymeasurement
-                mvn clean package -Dmaven.test.skip=true
+                docker tag quantitymeasurement-backend:latest ${ECR_URI}:latest
                 '''
             }
         }
-        stage('Deploy') {
+
+        stage('Push Docker Image') {
+
             steps {
+
                 sh '''
-                scp quantitymeasurement/target/quantitymeasurement-0.0.1-SNAPSHOT.jar ubuntu@172.31.41.125:/app/quantitymeasurement/target/
-                ssh ubuntu@172.31.41.125 'sudo systemctl restart quantityapp.service'
-                ssh ubuntu@172.31.41.125 'sudo systemctl status quantityapp.service'
+                docker push ${ECR_URI}:latest
                 '''
-                
             }
         }
     }
