@@ -76,7 +76,7 @@ stages {
         steps {
 
             sh '''
-            ssh -o StrictHostKeyChecking=no -i /var/lib/jenkins/.ssh/id_rsa ubuntu@13.206.120.157 << EOF
+            ssh -o StrictHostKeyChecking=no -i /var/lib/jenkins/.ssh/quantity-key.pem.pem ubuntu@13.206.120.157 << EOF
 
             aws ecr get-login-password --region ap-south-1 | \
             docker login --username AWS --password-stdin ${ECR_URI}
