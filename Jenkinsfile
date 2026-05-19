@@ -59,7 +59,7 @@ pipeline {
             steps {
                 sh '''
                 ssh -o StrictHostKeyChecking=no \
-                -i /var/lib/jenkins/.ssh/quantity-key.pem \
+                -i /var/lib/jenkins/.ssh/quantity-key.pem.pem \
                 ubuntu@${APP_SERVER} << EOF
                 aws ecr get-login-password --region ap-south-1 | \
                 docker login --username AWS --password-stdin ${ECR_REGISTRY}
